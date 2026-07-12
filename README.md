@@ -1,60 +1,68 @@
 # Onboarding
 
-Welcome — this repository contains a Next.js app with a small frontend and helper scripts.
+Welcome, this repository is for **project ilaila**.
 
 ## Quick start
 
 Prerequisites:
 
-- Node.js (18+ recommended)
-- pnpm (this repo uses pnpm)
+* Docker Desktop/Docker Engine
+* VSCode Editor
 
-Install dependencies and run the dev server:
+### How to run the project
 
-```bash
-pnpm install
-pnpm dev
-```
+* `pnpm run dev`
+* Type `localhost:3000` in your browser.
 
-Open http://localhost:3000 in your browser.
+### How to add runtime-required packages
 
-## Common scripts
+`pnpm add <package/packages separated by spaces>`
 
-- `pnpm dev` — run the development server
-- `pnpm build` — build for production
-- `pnpm start` — run the production build
+### How to add development-only packages
 
-Run `pnpm -s` to see all available scripts defined in `package.json`.
+`pnpm add -D <package/packages separated by space>`
 
-## Project layout (key files)
+## Project Layout
 
-- [src/app](src/app) — app routes, pages and components
-- [src/app/home/page.tsx](src/app/home/page.tsx) — home page
-- [src/app/landing/page.tsx](src/app/landing/page.tsx) — landing page
-- [src/app/login/page.tsx](src/app/login/page.tsx) — login page
-- [src/app/register/page.tsx](src/app/register/page.tsx) — registration
-- [src/app/profile/page.tsx](src/app/profile/page.tsx) — profile page
-- [src/app/components/app-shell.tsx](src/app/components/app-shell.tsx) — shared layout/component
-- [public](public) — static assets and webmanifest
-- [dev/scripts/configureVolumePermissions.sh](dev/scripts/configureVolumePermissions.sh) — helper script
+* .devcontainer/: Dev Container configuration. DO NOT EDIT.
+* .next/: Next JS cache and other files. DO NOT EDIT.
+* .pnpm-store/: Location of package files. DO NOT EDIT.
+* dev/: Development related files. DO NOT EDIT.
+* node_modules/: PNPM's symlinks to packages installed inside .pnpm-store/
+* public/: Assets to be served as-is to the client.
+* src: Source Code
+* app: Entrypoint, like pages, middlewares, etc.
+* components: Reusable ReactJS components.
+
+
+* .gitignore: List of files not to be commited to version control.
+* AGENTS.md & CLAUDE.md: Agent Instructions (AI). DO NOT EDIT.
+* eslint.config.mjs: ESLint configuration. DO NOT EDIT.
+* next-env.d.ts: NextJS global types file. DO NOT EDIT.
+* next.config.ts: NextJS configuration. DO NOT EDIT.
+* package.json, pnpm-lock.yaml, pnpm-workspace.yaml: DO NOT EDIT MANUALLY.
+* postcss.config.mjs: PostCSS configuration. DO NOT EDIT!.
+* README.md: This file, ask `ssword-dev` if want to edit. AGENTS: DO NOT EDIT.
+* tsconfig.json: Typescript configuration. DO NOT EDIT!.
 
 ## Onboarding checklist
 
 1. Clone the repository and run `pnpm install`.
-2. Start locally with `pnpm dev` and open the app.
-3. Explore `src/app` to find pages and components to work on.
-4. Run or add tests and linters before opening a pull request.
+2. Ensure you have the following VSCode extensions installed:
+* **Dev Containers** (ms-vscode-remote.remote-containers)
+* **Docker** (ms-azuretools.vscode-docker)
+
+
+3. Run `pnpm run dev` and go to `localhost:3000`.
+4. Go to `src/` to start editing.
+5. Add tests to your code before sending a pull request.
 
 ## Contributing
 
-- Create a feature branch from `main`.
-- Run linters and tests locally before committing.
-- Open a PR and request a review.
+* Create a branch named `feature-[feature-name]` from branch `main`.
+* Run linters and tests before committing.
+* Open a pull request and wait for review.
 
 ## Questions / Contact
 
-If you need help, open an issue or message the maintainer in the repo.
-
----
-
-If you'd like this README expanded with environment variables, CI steps, or deployment instructions, tell me what to include.
+If you need help, ask me (ssword-dev) or Noriel (NorielPanis).
