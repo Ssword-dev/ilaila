@@ -1,0 +1,34 @@
+{
+    "name": "Fullstack Development Environment (IlaIla)",
+    "dockerComposeFile": "./docker-compose.yml",
+    "runServices": ["app", "db"],
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    "remoteUser": "dev",
+    "features": {
+        "ghcr.io/devcontainers/features/node:2": {
+            "version": "22"
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "vitest.explorer",
+                "esbenp.prettier-vscode",
+                "bradlc.vscode-tailwindcss",
+                "PKief.material-icon-theme",
+                "naumovs.color-highlight",
+                "mikestead.dotenv",
+                "wix.vscode-import-cost",
+                "yoavbls.pretty-ts-errors"
+            ]
+        }
+    },
+    
+    "postCreateCommand": "sudo chmod +xwr dev/scripts/*.sh && /workspace/dev/scripts/configureVolumePermissions.sh && COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && corepack prepare pnpm@10.33.2 --activate && pnpm install --frozen-lockfile && pnpm approve-builds --all",
+    "shutdownAction": "stopCompose"
+}

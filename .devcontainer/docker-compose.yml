@@ -1,0 +1,34 @@
+name: project-ilaila
+
+services:
+  app:
+    build: 
+      context: ..
+      dockerfile: .devcontainer/app.Dockerfile
+    tty: true
+    command: sleep infinity
+    volumes:
+      - ..:/workspace:cached
+      - dev-cache-pnpm-local:/workspace/.pnpm-store
+      - dev-cache-pnpm-global:/root/.pnpm-store
+      - dev-cache-next:/workspace/.next
+      - dev-cache-node-modules:/workspace/node_modules
+    depends_on:
+      - db
+
+  db:
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "00000000"
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+  dev-cache-pnpm-local:
+  dev-cache-pnpm-global:
+  dev-cache-next:
+  dev-cache-node-modules:
