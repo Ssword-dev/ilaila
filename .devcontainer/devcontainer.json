@@ -3,7 +3,7 @@
     "dockerComposeFile": "./docker-compose.yml",
     "runServices": ["app", "db"],
     "service": "app",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/home/dev/app",
     "remoteUser": "dev",
     "features": {
         "ghcr.io/devcontainers/features/node:2": {
@@ -29,6 +29,6 @@
         }
     },
     
-    "postCreateCommand": "sudo chmod +xwr dev/scripts/*.sh && /workspace/dev/scripts/configureVolumePermissions.sh && COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && corepack prepare pnpm@10.33.2 --activate && pnpm install --frozen-lockfile && pnpm approve-builds --all",
+    "postCreateCommand": "sudo chmod +xwr /home/dev/app/dev/scripts/*.sh && /home/dev/app/dev/scripts/configureVolumePermissions.sh && COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack enable && corepack prepare pnpm@10.33.2 --activate && pnpm install --frozen-lockfile && pnpm approve-builds --all",
     "shutdownAction": "stopCompose"
 }

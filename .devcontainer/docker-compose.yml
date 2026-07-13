@@ -8,11 +8,15 @@ services:
     tty: true
     command: sleep infinity
     volumes:
-      - ..:/workspace:cached
-      - dev-cache-pnpm-local:/workspace/.pnpm-store
-      - dev-cache-pnpm-global:/root/.pnpm-store
-      - dev-cache-next:/workspace/.next
-      - dev-cache-node-modules:/workspace/node_modules
+      - ..:/home/dev/app:cached
+      
+      - pnpm_store:/home/dev/app/.pnpm-store
+      - pnpm_packages:/home/dev/app/node_modules/.pnpm
+      - pnpm_bin:/home/dev/app/node_modules/.bin
+      
+      - /home/dev/app/node_modules
+      - /home/dev/app/.next
+
     depends_on:
       - db
 
@@ -28,7 +32,6 @@ services:
 
 volumes:
   pgdata:
-  dev-cache-pnpm-local:
-  dev-cache-pnpm-global:
-  dev-cache-next:
-  dev-cache-node-modules:
+  pnpm_store:
+  pnpm_packages:
+  pnpm_bin:

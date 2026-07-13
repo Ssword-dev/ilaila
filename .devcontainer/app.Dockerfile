@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/devcontainers/base:3.0-ubuntu22.04
 
 ARG NODE_ENV=development
-ENV NODE_ENV=development
+ARG DEV_USER_ID=1970
+ENV NODE_ENV=$NODE_ENV
 
 USER root
 
@@ -9,16 +10,15 @@ RUN apt-get update -y && \
     apt-get install -y ripgrep curl sudo && \
     rm -rf /var/lib/apt/lists/*
 
-# -m: create a user home directory
-# --s /bin/bash: set default shell to bash
-RUN useradd -m -s /bin/bash dev
+# create group 'dev'
+RUN groupadd -g ${DEV_USER_ID} dev
 
-# add user `dev` to sudo group.
-RUN groupadd -f sudo && usermod -aG sudo dev
+RUN useradd -m -u ${DEV_USER_ID} -g dev -s /bin/bash dev
 
-# add user `dev` to sudoers.
-RUN echo "dev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN usermod -aG sudo dev && \
+    echo "dev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+RUN chmod 755 -R /home/dev
 USER dev
 
 EXPOSE 3000
