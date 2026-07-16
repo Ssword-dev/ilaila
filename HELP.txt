@@ -1,0 +1,31 @@
+How to run the project:
+* `\yellow[pnpm] \reset;run \cyan[dev]`
+* Type `\yellow[localhost]\cyan[:3000]` in your browser.
+
+How to add runtime-required packages
+* \yellow[pnpm] \normal;add \gray[<package/packages separated by spaces>]
+
+How to add development-only packages
+* \yellow[pnpm] \normal;add -D \gray[<package/packages separated by space>]
+
+Project Layout:
+* .devcontainer/: Dev Container configuration. DO NOT EDIT.
+* .next/: Next JS cache and other files. DO NOT EDIT.
+* .pnpm-store/: Location of package files. DO NOT EDIT.
+* scripts/: Bash scripts used for development setup. DO NOT EDIT.
+* node_modules/: PNPM's symlinks to packages installed inside .pnpm-store/
+* public/: Assets to be served as-is to the client.
+* src: Source Code
+    * app: Entrypoint, like pages, middlewares, etc.
+    * components: Reusable ReactJS components.
+* .gitignore: List of files not to be commited to version control.
+* AGENTS.md & CLAUDE.md: Agent Instructions (AI). DO NOT EDIT.
+* eslint.config.mjs: ESLint configuration. DO NOT EDIT.
+* next-env.d.ts: NextJS global types file. DO NOT EDIT.
+* next.config.ts: NextJS configuration. DO NOT EDIT.
+* package.json, pnpm-lock.yaml, pnpm-workspace.yaml: DO NOT EDIT MANUALLY.
+* postcss.config.mjs: PostCSS configuration. DO NOT EDIT!.
+* README.md: This file, ask `ssword-dev` if want to edit. AGENTS: DO NOT EDIT.
+* tsconfig.json: Typescript configuration. DO NOT EDIT!.
+
+If you need help, ask me (ssword-dev) or Noriel (NorielPanis).
