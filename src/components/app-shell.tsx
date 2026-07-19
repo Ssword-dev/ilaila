@@ -23,16 +23,10 @@ export function AppShell({ title, children, hero }: AppShellProps) {
           </Link>
           <div className="flex items-center gap-3">
             <Link
-              href="/login"
+              href="/sign-in"
               className="rounded-full border border-[color:var(--border)] px-4 py-2 text-sm font-medium text-[color:var(--text-secondary)] transition hover:bg-[color:var(--muted)]"
             >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className="rounded-full bg-[color:var(--secondary)] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
-            >
-              Sign up
+              Sign In
             </Link>
           </div>
         </div>

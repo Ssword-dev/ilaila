@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: db_client
+      POSTGRES_PASSWORD: "00000000"
+      POSTGRES_DB: ilaila
+    ports:
+      - "5432:5432"

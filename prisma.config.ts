@@ -1,0 +1,17 @@
+import 'dotenv/config'; // Loads default .env
+import { config } from 'dotenv';
+import path from 'path';
+import { defineConfig, env } from 'prisma/config';
+
+// load local .env if not in production.
+if (process.env.NODE_ENV !== "production") {
+  config({ path: path.join(import.meta.dirname, '.env.local') });
+}
+
+export default defineConfig({
+  schema: './prisma/schema.prisma',
+  datasource: {
+    // This will now successfully pull from .env.local
+    url: env('DATABASE_URL'), 
+  },
+});

@@ -24,10 +24,8 @@ Prerequisites:
 
 ## Project Layout
 
-* .devcontainer/: Dev Container configuration. DO NOT EDIT.
 * .next/: Next JS cache and other files. DO NOT EDIT.
 * .pnpm-store/: Location of package files. DO NOT EDIT.
-* dev/: Development related files. DO NOT EDIT.
 * node_modules/: PNPM's symlinks to packages installed inside .pnpm-store/
 * public/: Assets to be served as-is to the client.
 * src: Source Code
