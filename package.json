@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "keygen": "node dev/scripts/keygen.js",
     "dev:next": "next dev",
     "dev:docker": "docker compose -f dev/docker-compose.yml up",
     "dev": "concurrently --kill-others -n \"next,docker\" \"pnpm run dev:next\" \"pnpm run dev:docker\"",
@@ -43,6 +44,7 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "concurrently": "^10.0.3",
+    "edit-dotenv": "^1.0.4",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "prisma": "^7.8.0",
