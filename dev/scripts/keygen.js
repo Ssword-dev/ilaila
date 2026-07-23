@@ -1,4 +1,6 @@
-import { loggerFrom } from "./logger.js";
+"use strict";
+
+import { loggerFrom } from "./modules/logger.js";
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import crypto from "node:crypto";

@@ -7,9 +7,15 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
+model User {  
+  // timestamps
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  id            String    @id
+  userName      String?
   email         String    @unique
   passwordHash  String
+
+  // "user" | "admin".
+  role          String
 }

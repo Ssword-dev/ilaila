@@ -5,7 +5,7 @@ import { defineConfig, env } from 'prisma/config';
 
 // load local .env if not in production.
 if (process.env.NODE_ENV !== "production") {
-  config({ path: path.join(import.meta.dirname, '.env.local') });
+  config({ path: path.join(import.meta.dirname, '.env.development') });
 }
 
 export default defineConfig({

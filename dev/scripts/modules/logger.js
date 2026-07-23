@@ -1,3 +1,5 @@
+"use strict";
+
 function loggerFrom({ console, indent = 4 }) {
   const originalConsoleLog = console.log;
   const originalConsoleWarn = console.warn;
@@ -30,13 +32,18 @@ function loggerFrom({ console, indent = 4 }) {
   logger.dedent = (function() { indentCount = Math.max(indentCount-1, 0); }).bind(logger);
 
   /**
-   * 
-   * @param {(indentCount: number) => void} fn 
+   * @template T
+   * @param {() => T} fn 
+   * @returns {T}
    */
   logger.block = (function(fn) {
     this.indent();
-    fn(indentCount);
-    this.block();
+    try {
+      return fn();
+    }
+    finally {
+      this.dedent();
+    }
   }).bind(logger);
 
   return logger;
